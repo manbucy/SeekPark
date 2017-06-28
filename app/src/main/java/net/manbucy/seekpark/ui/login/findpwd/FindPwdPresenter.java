@@ -1,7 +1,5 @@
 package net.manbucy.seekpark.ui.login.findpwd;
 
-import android.content.Context;
-
 import net.manbucy.seekpark.common.Constant;
 import net.manbucy.seekpark.model.ModelCallback;
 import net.manbucy.seekpark.model.user.User;

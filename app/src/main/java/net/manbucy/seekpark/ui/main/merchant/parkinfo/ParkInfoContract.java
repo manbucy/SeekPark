@@ -1,4 +1,4 @@
-package net.manbucy.seekpark.ui.main.merchant;
+package net.manbucy.seekpark.ui.main.merchant.parkinfo;
 
 import net.manbucy.seekpark.ui.BasePresenter;
 import net.manbucy.seekpark.ui.BaseView;
@@ -8,9 +8,9 @@ import net.manbucy.seekpark.ui.BaseView;
  * Created by yang on 2017/6/28.
  */
 
-public interface MerchantContract {
+interface ParkInfoContract {
 
-    interface ParkInfoView extends BaseView<Presenter>{
+    interface View extends BaseView<Presenter>{
 
     }
 

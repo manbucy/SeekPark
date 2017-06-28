@@ -3,12 +3,10 @@ package net.manbucy.seekpark.ui.main.merchant.parkinfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import net.manbucy.seekpark.R;
 import net.manbucy.seekpark.common.BaseFragment;
-import net.manbucy.seekpark.ui.main.merchant.MerchantContract;
 
 import butterknife.ButterKnife;
 
@@ -17,8 +15,8 @@ import butterknife.ButterKnife;
  * Created by yang on 2017/6/28.
  */
 
-public class ParkInfoFragment extends BaseFragment implements MerchantContract.ParkInfoView{
-    private MerchantContract.Presenter merchantPresenter;
+public class ParkInfoFragment extends BaseFragment implements ParkInfoContract.View {
+    private ParkInfoContract.Presenter merchantPresenter;
 
     public static ParkInfoFragment newInstance(){
         return new ParkInfoFragment();
@@ -29,8 +27,8 @@ public class ParkInfoFragment extends BaseFragment implements MerchantContract.P
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.merchant_park_info_fragment,container,false);
+    public android.view.View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        android.view.View root = inflater.inflate(R.layout.merchant_park_info_fragment,container,false);
         ButterKnife.bind(this,root);
         return root;
     }
@@ -42,7 +40,7 @@ public class ParkInfoFragment extends BaseFragment implements MerchantContract.P
     }
 
     @Override
-    public void setPresenter(MerchantContract.Presenter presenter) {
+    public void setPresenter(ParkInfoContract.Presenter presenter) {
         merchantPresenter = presenter;
     }
 
