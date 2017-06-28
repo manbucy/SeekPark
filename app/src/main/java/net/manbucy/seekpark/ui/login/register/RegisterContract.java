@@ -9,7 +9,7 @@ import net.manbucy.seekpark.ui.BaseView;
  * Created by yang on 2017/6/24.
  */
 
-public interface RegisterContract {
+interface RegisterContract {
 
     interface View extends BaseView<Presenter> {
         void showDialog(String message);

@@ -7,7 +7,7 @@
     <include layout="@layout/toolbar" />
 
     <LinearLayout
-        android:id="@+id/my_park_info_no_park"
+        android:id="@+id/mpif_no_park"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -23,7 +23,7 @@
 
     <!--展示我的停车点信息-->
     <LinearLayout
-        android:id="@+id/my_park_info_normal"
+        android:id="@+id/mpif_normal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -38,7 +38,7 @@
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_or_alter_button"
+        android:id="@+id/mpif_add_or_alert_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

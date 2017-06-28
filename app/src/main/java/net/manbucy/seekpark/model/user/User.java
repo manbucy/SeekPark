@@ -1,12 +1,10 @@
 package net.manbucy.seekpark.model.user;
 
-import java.util.List;
-
-import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 
 /**
  * 用户类
+ * 商家---停车场 1:1
  * Created by yang on 2017/6/22.
  */
 
@@ -15,7 +13,6 @@ public class User extends BmobUser {
     private boolean isCommitAuth;
     private boolean hasPark;
     private String parkId;
-    private List<String> orderList;
 
     public String getParkId() {
         return parkId;
@@ -49,11 +46,4 @@ public class User extends BmobUser {
         isMerchant = merchant;
     }
 
-    public List<String> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(List<String> orderList) {
-        this.orderList = orderList;
-    }
 }

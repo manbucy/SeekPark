@@ -11,11 +11,18 @@ import android.view.MenuItem;
 import net.manbucy.seekpark.R;
 import net.manbucy.seekpark.common.BaseActivity;
 import net.manbucy.seekpark.listener.DrawerLayoutListener;
+import net.manbucy.seekpark.model.park.source.ParkRepository;
+import net.manbucy.seekpark.model.park.source.remote.ParkRemoteSource;
 import net.manbucy.seekpark.ui.login.LoginActivity;
+import net.manbucy.seekpark.ui.main.merchant.parkinfo.ParkInfoFragment;
+import net.manbucy.seekpark.ui.main.merchant.parkinfo.ParkInfoPresenter;
+import net.manbucy.seekpark.ui.main.merchant.searchpark.SearchParkFragment;
+import net.manbucy.seekpark.ui.main.merchant.searchpark.SearchParkPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bmob.v3.BmobUser;
+import me.yokeyword.fragmentation.SupportFragment;
 
 public class MainActivity extends BaseActivity implements DrawerLayoutListener, NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.am_draw_layout)
@@ -28,6 +35,12 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        if (savedInstanceState == null){
+            SearchParkFragment searchParkFragment = SearchParkFragment.newInstance();
+            loadRootFragment(R.id.contentFrame,searchParkFragment);
+            new SearchParkPresenter(searchParkFragment,
+                    ParkRepository.getIntance(ParkRemoteSource.getInstance()));
+        }
         initView();
     }
 
@@ -38,6 +51,7 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
             navigationView.inflateMenu(R.menu.nav_menu_customer);
         }
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -56,7 +70,7 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
 
     @Override
     public void onOpen() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+        if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.openDrawer(GravityCompat.START);
         }
     }
@@ -69,7 +83,10 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
             public void run() {
                 switch (item.getItemId()) {
                     case R.id.nav_search_park:
-                        toast("寻找停车场");
+                        SearchParkFragment searchParkFragment = findFragment(SearchParkFragment.class);
+                        start(searchParkFragment, SupportFragment.SINGLETASK);
+                        new SearchParkPresenter(searchParkFragment,
+                                ParkRepository.getIntance(ParkRemoteSource.getInstance()));
                         break;
                     case R.id.nav_order_park:
                         toast("我的预约");
@@ -78,7 +95,15 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
                         toast("我的历史订单");
                         break;
                     case R.id.nav_my_park:
-                        toast("我的停车场");
+                        ParkInfoFragment parkInfoFragment = findFragment(ParkInfoFragment.class);
+                        if (parkInfoFragment == null) {
+                            parkInfoFragment = ParkInfoFragment.newInstance();
+                            start(parkInfoFragment);
+                        } else {
+                            start(parkInfoFragment, SupportFragment.SINGLETASK);
+                        }
+                        new ParkInfoPresenter(ParkRepository.getIntance(ParkRemoteSource.getInstance()),
+                                parkInfoFragment);
                         break;
                     case R.id.nav_my_info:
                         toast("我的信息");

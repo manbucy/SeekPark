@@ -8,7 +8,7 @@ import net.manbucy.seekpark.ui.BaseView;
  * Created by yang on 2017/6/25.
  */
 
-public interface FindPwdContract {
+interface FindPwdContract {
     interface View extends BaseView<Presenter> {
         void showDialog(String message);
 

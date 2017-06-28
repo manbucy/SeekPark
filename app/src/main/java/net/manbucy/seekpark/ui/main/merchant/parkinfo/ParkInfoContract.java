@@ -10,11 +10,11 @@ import net.manbucy.seekpark.ui.BaseView;
 
 interface ParkInfoContract {
 
-    interface View extends BaseView<Presenter>{
+    interface View extends BaseView<Presenter> {
 
     }
 
-    interface Presenter extends BasePresenter{
+    interface Presenter extends BasePresenter {
 
     }
 }

@@ -9,7 +9,7 @@ import net.manbucy.seekpark.ui.BaseView;
  * Created by yang on 2017/6/23.
  */
 
-public interface LoginContract {
+interface LoginContract {
 
     interface View extends BaseView<Presenter> {
         void setUserLoginInfo(UserLoginInfo userLoginInfo);
