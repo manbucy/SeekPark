@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="48dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:src="@mipmap/seek_park" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lf_input_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="21">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:drawablePadding="6dp"
+                    android:drawableStart="@drawable/ic_login_account"
+                    android:hint="用户名"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColorHint="@color/secondary_text"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lf_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:orientation="horizontal"
+                app:counterEnabled="true"
+                app:counterMaxLength="16"
+                app:passwordToggleEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:drawablePadding="6dp"
+                    android:drawableStart="@drawable/ic_login_password"
+                    android:hint="密    码"
+                    android:imeActionLabel="登录"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/secondary_text"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/lf_remember_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="记住密码"
+                android:textColor="@color/secondary_text" />
+
+            <Button
+                android:id="@+id/lf_button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary"
+                android:text="登录"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/lf_text_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="注册"
+                android:textColor="@drawable/text_press_selector" />
+
+            <TextView
+                android:id="@+id/lf_text_find_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="忘记密码"
+                android:textColor="@drawable/text_press_selector" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
