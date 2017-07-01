@@ -114,5 +114,18 @@ public class BaseActivity extends SupportActivity {
     public User getCurrentUser(){
         return BmobUser.getCurrentUser(User.class);
     }
+    /**
+     * 返回键 事件处理 若Fragment栈里面还有Fragment则pop出栈
+     * 否则 按两次退出程序
+     */
+
+    @Override
+    public void onBackPressedSupport() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            pop();
+        } else {
+            pressBack();
+        }
+    }
 
 }

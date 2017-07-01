@@ -46,6 +46,7 @@ public class BaseFragment extends SupportFragment {
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    hideSoftInput();
                     pop();
                 }
             });
@@ -83,5 +84,11 @@ public class BaseFragment extends SupportFragment {
      */
     public User getCurrentUser() {
         return BmobUser.getCurrentUser(User.class);
+    }
+
+    @Override
+    public boolean onBackPressedSupport() {
+        hideSoftInput();
+        return super.onBackPressedSupport();
     }
 }

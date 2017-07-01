@@ -29,7 +29,8 @@
                     android:layout_height="48dp"
                     android:drawablePadding="6dp"
                     android:drawableStart="@drawable/ic_park"
-                    android:hint="名称" />
+                    android:hint="名称"
+                    android:textSize="16sp" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -52,7 +53,8 @@
                         android:layout_height="48dp"
                         android:drawablePadding="6dp"
                         android:drawableStart="@drawable/ic_address"
-                        android:hint="地址" />
+                        android:hint="地址"
+                        android:textSize="16sp" />
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
@@ -86,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:text="234.12351" />
+                    android:text="" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -100,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:text="234.1454325" />
+                    android:text="" />
             </LinearLayout>
 
             <TextView
@@ -125,7 +127,9 @@
                         android:layout_height="48dp"
                         android:drawablePadding="6dp"
                         android:drawableStart="@drawable/ic_car"
-                        android:hint="数量" />
+                        android:hint="数量"
+                        android:inputType="number"
+                        android:textSize="16sp" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -139,7 +143,9 @@
                         android:layout_height="48dp"
                         android:drawablePadding="6dp"
                         android:drawableStart="@drawable/ic_price"
-                        android:hint="价格" />
+                        android:hint="价格"
+                        android:inputType="numberDecimal"
+                        android:textSize="16sp" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -179,7 +185,9 @@
                         android:layout_height="48dp"
                         android:drawablePadding="6dp"
                         android:drawableStart="@drawable/ic_car"
-                        android:hint="数量" />
+                        android:hint="数量"
+                        android:inputType="number"
+                        android:textSize="16sp" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -193,7 +201,9 @@
                         android:layout_height="48dp"
                         android:drawablePadding="6dp"
                         android:drawableStart="@drawable/ic_price"
-                        android:hint="价格" />
+                        android:hint="价格"
+                        android:inputType="numberDecimal"
+                        android:textSize="16sp" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -250,7 +260,8 @@
                     android:layout_height="100dp"
                     android:drawablePadding="6dp"
                     android:ems="10"
-                    android:hint="备注" />
+                    android:hint="备注"
+                    android:textSize="16sp" />
 
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>

@@ -77,13 +77,7 @@ public class FindPwdFragment extends BaseFragment implements FindPwdContract.Vie
 
     private void initView() {
         toolbar.setTitle("修改密码");
-        toolbar.setNavigationIcon(R.drawable.ic_toolbar_back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pop();
-            }
-        });
+        setToolbar(toolbar,FRAGMENT_TYPE_SECONDE);
         phone = phoneInputLayout.getEditText();
         verify = verifyInputLayout.getEditText();
         password = passwordInputLayout.getEditText();

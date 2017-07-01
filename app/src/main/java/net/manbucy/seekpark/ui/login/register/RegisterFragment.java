@@ -93,13 +93,7 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
 
     private void initView() {
         toolbar.setTitle("注册");
-        toolbar.setNavigationIcon(R.drawable.ic_toolbar_back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pop();
-            }
-        });
+        setToolbar(toolbar,FRAGMENT_TYPE_SECONDE);
         phone = phoneInputLayout.getEditText();
         verify = verifyInputLayout.getEditText();
         username = usernameInputLayout.getEditText();

@@ -55,11 +55,6 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
     }
 
     @Override
-    public void onBackPressedSupport() {
-        pressBack();
-    }
-
-    @Override
     public void onLock(boolean lock) {
         if (lock) {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
