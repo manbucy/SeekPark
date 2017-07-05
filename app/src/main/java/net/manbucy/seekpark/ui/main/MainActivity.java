@@ -16,8 +16,8 @@ import net.manbucy.seekpark.model.park.source.remote.ParkRemoteSource;
 import net.manbucy.seekpark.ui.login.LoginActivity;
 import net.manbucy.seekpark.ui.main.merchant.parkinfo.ParkInfoFragment;
 import net.manbucy.seekpark.ui.main.merchant.parkinfo.ParkInfoPresenter;
-import net.manbucy.seekpark.ui.main.merchant.searchpark.SearchParkFragment;
-import net.manbucy.seekpark.ui.main.merchant.searchpark.SearchParkPresenter;
+import net.manbucy.seekpark.ui.main.searchpark.parklist.SearchParkFragment;
+import net.manbucy.seekpark.ui.main.searchpark.parklist.SearchParkPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
             SearchParkFragment searchParkFragment = SearchParkFragment.newInstance();
             loadRootFragment(R.id.contentFrame,searchParkFragment);
             new SearchParkPresenter(searchParkFragment,
-                    ParkRepository.getIntance(ParkRemoteSource.getInstance()));
+                    ParkRepository.getInstance(ParkRemoteSource.getInstance()));
         }
         initView();
     }
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
                         SearchParkFragment searchParkFragment = findFragment(SearchParkFragment.class);
                         start(searchParkFragment, SupportFragment.SINGLETASK);
                         new SearchParkPresenter(searchParkFragment,
-                                ParkRepository.getIntance(ParkRemoteSource.getInstance()));
+                                ParkRepository.getInstance(ParkRemoteSource.getInstance()));
                         break;
                     case R.id.nav_order_park:
                         toast("我的预约");
@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity implements DrawerLayoutListener, 
                         } else {
                             start(parkInfoFragment, SupportFragment.SINGLETASK);
                         }
-                        new ParkInfoPresenter(ParkRepository.getIntance(ParkRemoteSource.getInstance()),
+                        new ParkInfoPresenter(ParkRepository.getInstance(ParkRemoteSource.getInstance()),
                                 parkInfoFragment);
                         break;
                     case R.id.nav_my_info:

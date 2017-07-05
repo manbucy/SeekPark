@@ -31,4 +31,5 @@ public interface UserInfoSource {
 
     void singOrLogin(User user, String verifyCode, final UserInfoSource.loginCallback callback);
     void resetPassword(String password, String verifyCode, final ModelCallback.Normal callback);
+    void updateUser(User newUser, User oldUser, final ModelCallback.Normal callback);
 }

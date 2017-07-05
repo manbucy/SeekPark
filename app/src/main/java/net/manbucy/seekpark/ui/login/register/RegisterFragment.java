@@ -192,7 +192,10 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
         username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
+                if (username.getText().toString().isEmpty()){
+                    isVerify = false;
+                    showInputErrorMsgs(Constant.InputLayoutEntry.USERNAME_INPUT, "用户名不能为空");
+                }else if (!hasFocus) {
                     registerPresenter.checkUsername(username.getText().toString());
                 }
             }

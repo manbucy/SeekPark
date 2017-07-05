@@ -15,14 +15,13 @@ import net.manbucy.seekpark.common.BaseFragment;
 import net.manbucy.seekpark.model.park.source.ParkRepository;
 import net.manbucy.seekpark.model.park.source.remote.ParkRemoteSource;
 import net.manbucy.seekpark.model.user.User;
+import net.manbucy.seekpark.model.user.source.Injection;
 import net.manbucy.seekpark.ui.main.merchant.addpark.AddParkFragment;
 import net.manbucy.seekpark.ui.main.merchant.addpark.AddParkPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobUser;
 
 /**
  * ParkInfoFragment 商家 停车场信息 view
@@ -77,14 +76,28 @@ public class ParkInfoFragment extends BaseFragment implements ParkInfoContract.V
         } else {
             AddParkFragment addParkFragment = AddParkFragment.getInstance();
             new AddParkPresenter(addParkFragment,
-                    ParkRepository.getIntance(ParkRemoteSource.getInstance()));
+                    ParkRepository.getInstance(ParkRemoteSource.getInstance()),
+                    Injection.provideUserRepository(getContext()));
             startForResult(addParkFragment,START_ADD);
         }
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onFragmentResult(int requestCode, int resultCode, Bundle data) {
+        super.onFragmentResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case START_ADD:
+                    if (data != null) {
+                        noParkLayout.setVisibility(View.GONE);
+                        normalParLayout.setVisibility(View.VISIBLE);
+                        addOrAlertButton.setImageResource(R.drawable.ic_park_alter);
+                    }
+                    break;
+                default:
+            }
+        }
+
     }
 
     @Override

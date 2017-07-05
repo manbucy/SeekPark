@@ -157,4 +157,23 @@ public class UserRemoteSource {
 
     }
 
+    /**
+     * 更新User
+     * @param newUser 新User 里面可以只包含新的字段
+     * @param oldUser 旧User
+     * @param callback 回调
+     */
+    public void updateUser(User newUser, User oldUser, final ModelCallback.Normal callback){
+        newUser.update(oldUser.getObjectId(), new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null){
+                    callback.onSucceed();
+                } else {
+                    callback.onFailed();
+                }
+            }
+        });
+    }
+
 }

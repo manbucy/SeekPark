@@ -41,10 +41,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.login.LoginActivity"
-            android:windowSoftInputMode="adjustUnspecified"/>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:windowSoftInputMode="adjustUnspecified" />
         <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.merchant.MerchantActivity"/>
+
+        <activity android:name="net.manbucy.seekpark.ui.main.searchpark.parkinfo.BNDemoGuideActivity" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="dTzH31eU0hSzEi525hq0uHYcnrTSN9cd" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
     </application>
 
 </manifest>

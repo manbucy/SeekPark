@@ -125,4 +125,14 @@ public class UserRepository implements UserInfoSource {
     public void resetPassword(String password, String verifyCode, ModelCallback.Normal callback) {
         userRemoteSource.resetPassword(password, verifyCode, callback);
     }
+    /**
+     * 更新User
+     * @param newUser 新User 里面可以只包含新的字段
+     * @param oldUser 旧User
+     * @param callback 回调
+     */
+    @Override
+    public void updateUser(User newUser, User oldUser, ModelCallback.Normal callback) {
+        userRemoteSource.updateUser(newUser,oldUser,callback);
+    }
 }

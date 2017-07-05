@@ -32,16 +32,16 @@ public class SeekPark extends Application {
             LogUtil.e("KeyStoreException",e.toString());
         }
 
-        Fragmentation.builder()
-                .stackViewMode(Fragmentation.BUBBLE)
-                .debug(BuildConfig.DEBUG)
-                .handleException(new ExceptionHandler() {
-                    @Override
-                    public void onException(Exception e) {
-                        Log.d("App", "onException: " + e);
-                    }
-                })
-                .install();
+//        Fragmentation.builder()
+//                .stackViewMode(Fragmentation.BUBBLE)
+//                .debug(BuildConfig.DEBUG)
+//                .handleException(new ExceptionHandler() {
+//                    @Override
+//                    public void onException(Exception e) {
+//                        Log.d("App", "onException: " + e);
+//                    }
+//                })
+//                .install();
     }
 
     /**
